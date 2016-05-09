@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 
-@section(content)
+@section('content')
 
     @if(!(Auth::check()))
         <h1>Welcome to the Task Manager</h1>
@@ -11,5 +11,5 @@
         <p>Already have an account? <a href='/login'>Login here...</a></p>
 
     @endif
-    
+
 @stop
