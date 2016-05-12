@@ -2,8 +2,9 @@
 
 @section('content')
 
-
-    <h1>DISPLAY COMPLETE TASKS FOR A USER HERE</h1>
+    <h1>*************************************</h1>
+    <h1>Displaying your completed tasks here</h1>
+    <h1>*************************************</h1>
     @foreach($comptask as $comtask)
         <h2 class='completed'>{{ $comtask['task'] }}</h2>
         <a href='/editcomp/{{$comtask['id']}}'> Edit </a> <br>

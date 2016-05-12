@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1> WELCOME TO THE TASK MANAGER </h1>
+    <h1 class='main-head'> WELCOME TO THE TASK MANAGER </h1>
     <p>Already have an account? <a href='/login'>Login here...</a></p>
 
     <h1>Register</h1>
@@ -44,7 +44,7 @@
             <input type='password' name='password_confirmation' id='password_confirmation'>
         </div>
 
-        <button type='submit' class='btn_btn_primary'>Register</button>
+        <button type='submit' class='btn-btn-primary'>Register</button>
 
     </form>
 

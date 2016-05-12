@@ -1,3 +1,8 @@
+
+
+/*======================================
+Styling for body
+========================================*/
 body{
   background-color:white;
   text-align:center;
@@ -5,25 +10,17 @@ body{
 }
 
 
+/*======================================
+Styling for anchor tags
+========================================*/
 a{
     font-family: Tahoma;
     font-size:20px;
     color:red;
-    display:inline;
-    margin-bottom:40px;
-    align-content;
 
 }
 
-/*ol{
-    font-size: xx-large;
-}*/
 
-/*ul{
-    display:inline;
-}
-
-*/
 /*==============================================
 Styling for home, login and register page
 ================================================*/
@@ -56,6 +53,8 @@ Styling for home, login and register page
 label {
     display: block;
     margin-bottom:10px;
+    font-size:25px;
+    font-weight:bold;
 }
 
 input{
@@ -65,6 +64,11 @@ input{
 
 /*User options for tasks*/
 
+
+li, a .user-options{
+
+    font-color: black;
+}
 h1 .msg{
     display:block;
     font-size:100px;
