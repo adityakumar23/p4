@@ -28,31 +28,39 @@ class TaskmanageController extends Controller {
         $user=\Auth::user();
         if($user) {
             $incomptasks=\App\Incomplete_task::where('user_id', '=',$user->id)->get();
-            #dump($incomptasks);
+
             if($incomptasks){
-                #echo($comptasks->id);
+
                 return view('taskmanage.incomplete')->with('incomptask',$incomptasks->toArray());
 
             }
         }
-        #return view('taskmanage.incomplete');
+
     }
+
+
+    #================================
+    #Complete tasks page
+    #================================
 
     public function getComplete() {
         $user=\Auth::user();
         if($user) {
             $comptasks=\App\Complete_task::where('user_id', '=',$user->id)->get();
-            #dump($comptasks);
+
             if($comptasks){
-                #echo($comptasks->id);
+
                 return view('taskmanage.complete')->with('comptask',$comptasks->toArray());
 
             }
         }
-        #return view('taskmanage.complete');
+
     }
 
 
+    #================================
+    #All tasks page
+    #================================
     public function getAlltasks() {
 
         $user=\Auth::user();
@@ -61,14 +69,19 @@ class TaskmanageController extends Controller {
             $incomptasks=\App\Incomplete_task::where('user_id', '=', $user->id)->get();
 
             if($comptasks || $incomptasks){
-                #echo($comptasks->id);
+
                 return view('taskmanage.alltasks')->with('comptask',$comptasks->toArray())->with('incomptask',$incomptasks->toArray());
-                #return view('taskmanage.alltasks', compact('comptask','incomptask'));
+
             }
         }
 
 
     }
+
+
+    #==================================
+    #Add tasks page
+    #==================================
 
     public function getAdd(){
 
@@ -76,8 +89,12 @@ class TaskmanageController extends Controller {
 
     }
 
+
+    #====================================================
+    #Process add task request (task added as incomplete)
+    #====================================================
     public function postAdd(Request $request){
-        #added tasks by default go to incomplete tasks table
+
         $this->validate($request,[
             'addtask' => 'required|min:1|max:255'
         ]);
@@ -90,25 +107,28 @@ class TaskmanageController extends Controller {
             $task_added->user_id = $user->id;
             $task_added->save();
 
-            #return view('taskmanage.add');
-            #return 'added the task';
             return redirect()->to('/alltasks');
         }
     }
 
+
+    #====================================================
+    #Edit complete tasks page
+    #====================================================
     public function getEditcomplete($id){
 
 
-        #$task_to_edit=\App\Complete_task::where('id', '=',$id)->get();
-        #$incomp_task_to_edit=\App\Incomplete_task::where('id', '=',$id)->get();
         $comp_task_to_edit=\App\Complete_task::find($id);
         return view('taskmanage.editcomp')->with('comp_task_edit',$comp_task_to_edit);
-        #return 'EDIT'.$id;
+
     }
 
+
+    #====================================================
+    #Process editing request and update the complete task
+    #====================================================
     public function postEditcomplete(Request $request){
-        #$task_to_edit=\App\Complete_task::where('id', '=',$id)->get();
-        #$incomp_task_to_edit=\App\Incomplete_task:::where('id', '=',$id)->get();
+
         $this->validate($request,[
             'comptask' => 'required|min:1|max:255'
         ]);
@@ -118,21 +138,27 @@ class TaskmanageController extends Controller {
         $comp_task_to_edit->save();
         \Session::flash('message', 'Your changes were saved');
         return redirect()->to('/alltasks');
-        #return view('taskmanage.editincomp')->with('incomp_task_edit',$incomp_task_to_edit);
-        #return 'EDIT'.$id;
+
     }
+
+
+    #====================================================
+    #Edit incomplete tasks page
+    #====================================================
 
     public function getEditincomplete($id){
-        #$task_to_edit=\App\Complete_task::where('id', '=',$id)->get();
-        #$incomp_task_to_edit=\App\Incomplete_task::where('id', '=',$id)->get();
+
         $incomp_task_to_edit=\App\Incomplete_task::find($id);
         return view('taskmanage.editincomp')->with('incomp_task_edit',$incomp_task_to_edit);
-        #return 'EDIT'.$id;
+
     }
 
+    #====================================================
+    #Process editing request and update the incomplete task
+    #====================================================
+
     public function postEditincomplete(Request $request){
-        #$task_to_edit=\App\Complete_task::where('id', '=',$id)->get();
-        #$incomp_task_to_edit=\App\Incomplete_task:::where('id', '=',$id)->get();
+
 
         $this->validate($request,[
             'incomptask' => 'required|min:1|max:255'
@@ -151,8 +177,7 @@ class TaskmanageController extends Controller {
             $incomp_task_to_edit->delete();
 
 
-            #return view('taskmanage.add');
-            #return 'added the task';
+
             \Session::flash('message', 'Task moved to complete tasks');
             return redirect()->to('/alltasks');
 
@@ -162,12 +187,15 @@ class TaskmanageController extends Controller {
         $incomp_task_to_edit->save();
         \Session::flash('message', 'Your changes were saved');
         return redirect()->to('/alltasks');
-        #return view('taskmanage.editincomp')->with('incomp_task_edit',$incomp_task_to_edit);
-        #return 'EDIT'.$id;\
+
     }
     }
 
 
+
+    #====================================================
+    #Delete incomplete task
+    #====================================================
     public function getDeleteincomplete($id){
 
         $incomp_task_to_del=\App\Incomplete_task::find($id);
@@ -175,6 +203,10 @@ class TaskmanageController extends Controller {
 
     }
 
+
+    #====================================================
+    #Process delete request and update the table
+    #====================================================
     public function postDeleteincomplete(Request $request){
         $incomp_task_to_del=\App\Incomplete_task::find($request->ident);
 
@@ -193,6 +225,9 @@ class TaskmanageController extends Controller {
 
     }
 
+    #====================================================
+    #Delete complete task
+    #====================================================
 
     public function getDeletecomplete($id){
 
@@ -201,6 +236,10 @@ class TaskmanageController extends Controller {
 
     }
 
+
+    #====================================================
+    #Process delete request and update the table
+    #====================================================
     public function postDeletecomplete(Request $request){
         $comp_task_to_del=\App\Complete_task::find($request->ident);
 
