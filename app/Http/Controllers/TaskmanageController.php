@@ -161,6 +161,7 @@ class TaskmanageController extends Controller {
         $incomp_task_to_edit->task=$request->incomptask;
         $incomp_task_to_edit->save();
         \Session::flash('message', 'Your changes were saved');
+        return redirect()->to('/alltasks');
         #return view('taskmanage.editincomp')->with('incomp_task_edit',$incomp_task_to_edit);
         #return 'EDIT'.$id;\
     }
@@ -216,7 +217,7 @@ class TaskmanageController extends Controller {
 
         }
 
-        
+
 
     }
 }
