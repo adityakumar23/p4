@@ -14,7 +14,7 @@
         @yield('content')
     </section>
 
-    <h1 class='msg'>Welcome to the Task Manager</h1>
+
     <nav>
         <ul style="list-style-type:none" class="user-options">
             @if(Auth::check())
@@ -31,7 +31,7 @@
             @endif
         </ul>
     </nav>
-    <h1 class='msg'>YOU CAN MANAGE YOUR TASKS HERE </h1>
+    
 
 </body>
 </html>
