@@ -4,7 +4,7 @@
 http://p4adityak.me/
 
 ##Description
-This is a web application called Task Manager which cn be used to track complete/incomplete tasks for a user.
+This is a web application called Task Manager which can be used to track complete/incomplete tasks for a user.
 
 
 ##Demo
