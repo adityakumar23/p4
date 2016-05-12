@@ -14,6 +14,7 @@
         @yield('content')
     </section>
 
+    <h1 class='msg'>Welcome to the Task Manager</h1>
     <nav>
         <ul style="list-style-type:none" class="user-options">
             @if(Auth::check())
@@ -22,7 +23,7 @@
                 <li><a href='/incomplete'> View incomplete tasks </a></li>
                 <li><a href='/complete'> View complete tasks </a></li>
                 <li><a href='/logout'>Log out</a></li>
-                <img src='/images/task_manage_picture.jpg' alt='Task Manage' width='500' height='600'>
+
             @else
                 <li><a href='/'>Home</a></li>
                 <li><a href='/login'>Log in</a></li>
@@ -30,6 +31,7 @@
             @endif
         </ul>
     </nav>
+    <h1 class='msg'>YOU CAN MANAGE YOUR TASKS HERE </h1>
 
 </body>
 </html>

@@ -36,7 +36,7 @@
             <br>
         </div>
 
-        <button type='submit' class='btn_btn_primary'>Login</button>
+        <button type='submit' class='btn-btn-primary'>Login</button>
 
     </form>
 @stop

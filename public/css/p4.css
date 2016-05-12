@@ -7,10 +7,12 @@ body{
 
 a{
     font-family: Tahoma;
+    font-size:20px;
     color:red;
-    display:inline-block;
-    margin-bottom:50px;
+    display:inline;
+    margin-bottom:40px;
     align-content;
+
 }
 
 /*ol{
@@ -63,13 +65,15 @@ input{
 
 /*User options for tasks*/
 
-li .user-options{
+h1 .msg{
     display:block;
-    margin-bottom:50px;
+    font-size:100px;
+    margin-top:100px;
+    margin-bottom:100px;
 
 }
 
-
+/*color for completed tasks*/
 .completed {
     color:blue;
     font-family: Tahoma;
