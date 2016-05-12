@@ -8,7 +8,7 @@ This is a web application called Task Manager which can be used to track complet
 
 
 ##Demo
-http://screencast.com/t/oFYGKLbUr
+
 
 ##Details for teaching team
 Login required.
