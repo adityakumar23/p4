@@ -44,7 +44,7 @@
             <input type='password' name='password_confirmation' id='password_confirmation'>
         </div>
 
-        <button type='submit' class='btn btn-primary'>Register</button>
+        <button type='submit' class='btn_btn_primary'>Register</button>
 
     </form>
 
